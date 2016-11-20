@@ -24,6 +24,8 @@ public class  lab9 extends Application
 		
 		//create circle 1
 		Circle circle1 = new Circle();
+		//circle1.centerXProperty().bind(pane.widthProperty().divide((int)(Math.random()*100 +15)));
+		//circle1.centerYProperty().bind(pane.heightProperty().divide((int)(Math.random()*100+15)));
 		circle1.centerXProperty().bind(pane.widthProperty().divide(2));
 		circle1.centerYProperty().bind(pane.heightProperty().divide(2));
 		circle1.setRadius(15);
@@ -32,6 +34,11 @@ public class  lab9 extends Application
 		
 		//craete circle 2
 		Circle circle2 = new Circle();
+		circle2.centerXProperty().bind(pane.widthProperty().divide(4));
+		circle2.centerYProperty().bind(pane.heightProperty().divide(4));
+		circle2.setRadius(15);
+		circle2.setFill(Color.RED);
+		pane.getChildren().add(circle2);
 		
 		//create scene and place in into the stage
 		Scene scene = new Scene(pane, 300,  300);
