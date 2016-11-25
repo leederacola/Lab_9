@@ -15,6 +15,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import java.util.Random;
+import javafx.scene.text.Text;
 
 public class  lab9 extends Application
 {
@@ -46,7 +47,7 @@ public class  lab9 extends Application
 		//circle1.centerXProperty().bind(pane.widthProperty().divide(2));
 		//circle1.centerYProperty().bind(pane.heightProperty().divide(2));
 		circle1.setRadius(15);
-		circle1.setFill(Color.GREEN);
+		circle1.setFill(Color.BLACK);
 		pane.getChildren().add(circle1);
 		
 		//craete circle 2
@@ -56,11 +57,13 @@ public class  lab9 extends Application
 		//circle2.centerXProperty().bind(pane.widthProperty().divide(4));
 		//circle2.centerYProperty().bind(pane.heightProperty().divide(4));
 		circle2.setRadius(15);
-		circle2.setFill(Color.RED);
+		circle2.setFill(Color.BLACK);
 		pane.getChildren().add(circle2);
 		
 		//line.......
-		Label label1 = new Label(Double.toString(length));
+		//xstart = xend/2  yaraty+yend/2
+		Text text = new Text((((x+x2)/2)+10), (((y+y2)/2)+10),Double.toString(length));
+		//Label label1 = new Label(Double.toString(length));
 		Line line = new Line(); 
 		line.setStartX(x);
 		line.setStartY(y);
@@ -68,9 +71,9 @@ public class  lab9 extends Application
 		line.setEndY(y2);
 		//line.endProperty().bind(circle2.centerXProperty());
 		line.setStrokeWidth(2);
-		line.setStroke(Color.BLUE);
+		line.setStroke(Color.BLACK);
 		//Bind line end points to circle 
-		pane.getChildren().addAll(line, label1);
+		pane.getChildren().addAll(line, text);
 		
 		//create scene and place in into the stage
 		Scene scene = new Scene(pane, 300,  300);
