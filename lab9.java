@@ -23,13 +23,16 @@ public class  lab9 extends Application
 	public void start(Stage primaryStage)
 	{
 		/**
-		Randon doubles created in scope of scene 300 x 300, accounting for 15 px diameters
+		Random class for ranges of random points!
 		*/
-		double x = Math.random()*285 + 15;
-		double y = Math.random()*285 + 15;
-		double x2 = Math.random()*285 + 15;
-		double y2 = Math.random()*285 + 15;
-		//d = SQRT( ((x2-x1)^2)   +  ((y2-y1)^2))   )
+		
+		Random rand = new Random();
+		// Range accoutn for scene and circel diameter =((max - min) + 1) + min;
+		int x = rand.nextInt((285 - 15) + 1) + 15;
+		int y = rand.nextInt((285 - 15) + 1) + 15;
+		int x2 = rand.nextInt((285 - 15) + 1) + 15;
+		int y2 = rand.nextInt((285 - 15) + 1) + 15;
+		
 		double xdif = Math.pow((x2-x),2);
 		double ydif = Math.pow((y2-y),2);
 		double length = Math.sqrt(xdif + ydif);
