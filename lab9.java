@@ -8,6 +8,7 @@ You my turn in an image file or a pdf for your outputs.
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -21,10 +22,17 @@ public class  lab9 extends Application
 	
 	public void start(Stage primaryStage)
 	{
-		double x = Math.random()*300 +15;
-		double y = Math.random()*300 + 15;
-		double x2 = Math.random()*300 +15;
-		double y2 = Math.random()*300 + 15;
+		/**
+		Randon doubles created in scope of scene 300 x 300, accounting for 15 px diameters
+		*/
+		double x = Math.random()*285 + 15;
+		double y = Math.random()*285 + 15;
+		double x2 = Math.random()*285 + 15;
+		double y2 = Math.random()*285 + 15;
+		//d = SQRT( ((x2-x1)^2)   +  ((y2-y1)^2))   )
+		double xdif = Math.pow((x2-x),2);
+		double ydif = Math.pow((y2-y),2);
+		double length = Math.sqrt(xdif + ydif);
 		
 		
 		Pane pane = new Pane();
@@ -49,7 +57,8 @@ public class  lab9 extends Application
 		pane.getChildren().add(circle2);
 		
 		//line.......
-		Line line = new Line();
+		Label label1 = new Label(Double.toString(length));
+		Line line = new Line(); 
 		line.setStartX(x);
 		line.setStartY(y);
 		line.setEndX(x2);
@@ -58,7 +67,7 @@ public class  lab9 extends Application
 		line.setStrokeWidth(2);
 		line.setStroke(Color.BLUE);
 		//Bind line end points to circle 
-		pane.getChildren().add(line);
+		pane.getChildren().addAll(line, label1);
 		
 		//create scene and place in into the stage
 		Scene scene = new Scene(pane, 300,  300);
