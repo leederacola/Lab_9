@@ -78,7 +78,7 @@ public class gridAction extends Application
         primaryStage.setScene(scene);
         primaryStage.show();
 		
-		//understand this more thruoughly...........the method is 
+		//understand this more thruoughly...........
 		clear.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override
@@ -100,11 +100,9 @@ public class gridAction extends Application
 			{
 				xhorz = Integer.parseInt(textX.getText());
 				yvert =  Integer.parseInt(textY.getText());
-			
 				c1Color = (textCircle.getText());
 				c2Color = (textCircle2.getText());
 				lnColor = (textLine.getText());
-				
 			}
 		});
 	
