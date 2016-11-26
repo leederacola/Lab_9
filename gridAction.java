@@ -98,11 +98,13 @@ public class gridAction extends Application
 			@Override
 			public void handle(ActionEvent e)
 			{
-				xhorz = Integer.parseInt(textX.getText());
-				yvert =  Integer.parseInt(textY.getText());
+				xhorz = (Integer.parseInt(textX.getText()));
+				yvert =  (Integer.parseInt(textY.getText()));
 				c1Color = (textCircle.getText());
 				c2Color = (textCircle2.getText());
 				lnColor = (textLine.getText());
+				System.out.println("color 2 is " + c2Color);
+				
 			}
 		});
 	
