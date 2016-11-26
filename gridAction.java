@@ -12,6 +12,12 @@ eventually.........
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import java.util.Random;
+import javafx.scene.text.Text;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -98,15 +104,69 @@ public class gridAction extends Application
 			@Override
 			public void handle(ActionEvent e)
 			{
+				
 				xhorz = (Integer.parseInt(textX.getText()));
 				yvert =  (Integer.parseInt(textY.getText()));
-				c1Color = (textCircle.getText());
+				//c1Color = (textCircle.getText());
 				c2Color = (textCircle2.getText());
 				lnColor = (textLine.getText());
 				System.out.println("color 2 is " + c2Color);
 				
-			}
-		});
+				Random rand = new Random();
+				// Range accoutn for scene and circel diameter =((max - min) + 1) + min;
+				int x = rand.nextInt((xhorz - 15) + 1) + 15;
+				int y = rand.nextInt((yvert - 15) + 1) + 15;
+				int x2 = rand.nextInt((xhorz - 15) + 1) + 15;
+				int y2 = rand.nextInt((yvert - 15) + 1) + 15;
+		
+				double xdif = Math.pow((x2-x),2);
+				double ydif = Math.pow((y2-y),2);
+				double length = Math.sqrt(xdif + ydif);
+		
+				Stage stage = new Stage(); // Create a new stage
+				Pane pane = new Pane();
+				//create circle 1
+				Circle circle1 = new Circle();
+				circle1.setCenterX(x);
+				circle1.setCenterY(y);
+				//circle1.centerXProperty().bind(pane.widthProperty().divide(2));
+				//circle1.centerYProperty().bind(pane.heightProperty().divide(2));
+				circle1.setRadius(15);
+				circle1.setFill(Color.BLACK);
+				pane.getChildren().add(circle1);
+
+				//craete circle 2
+				Circle circle2 = new Circle();
+				circle2.setCenterX(x2);
+				circle2.setCenterY(y2);
+				//circle2.centerXProperty().bind(pane.widthProperty().divide(4));
+				//circle2.centerYProperty().bind(pane.heightProperty().divide(4));
+				circle2.setRadius(15);
+				circle2.setFill(Color.BLACK);
+				pane.getChildren().add(circle2);
+				
+				//line.......
+				//xstart = xend/2  yaraty+yend/2
+				Text text = new Text((((x+x2)/2)+10), (((y+y2)/2)+10),Double.toString(length));
+				//Label label1 = new Label(Double.toString(length));
+				Line line = new Line(); 
+				line.setStartX(x);
+				line.setStartY(y);
+				line.setEndX(x2);
+				line.setEndY(y2);
+				//line.endProperty().bind(circle2.centerXProperty());
+				line.setStrokeWidth(2);
+				line.setStroke(Color.BLACK);
+				//Bind line end points to circle 
+				pane.getChildren().addAll(line, text);
+				
+				//create scene and place in into the stage
+				Scene scene = new Scene(pane, xhorz,  yvert);
+				stage.setTitle("Here is Lab 9!");
+				stage.setScene(scene); //placing scene in stage
+				stage.show();  //this display everything
+					}
+				});
 	
 	}
 	
