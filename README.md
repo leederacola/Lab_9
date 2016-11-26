@@ -4,3 +4,6 @@ Do the problem 14.21 (Page 582) - Two circles and their distance as explained in
 Second application gridAction will teach me event and control lab9 colors and size!
 Also I will learn how to add only files needed when I push.
 Java FX Lab 
+
+guidelines
+http://www.javafxtutorials.com/javafxsimplecode/
