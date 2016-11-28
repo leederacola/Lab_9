@@ -33,6 +33,8 @@ public class gridAction extends Application
 	String lnColor = "";
 	int xhorz, yvert;
 	
+	//String[] color = new 
+	
 	TextField textX, textY, textCircle, textCircle2, textLine;
 	Label labelX, labelY, labelCircle, labelCircle2, labelLine;
 	Button launch, clear;
@@ -47,8 +49,10 @@ public class gridAction extends Application
 		textCircle2 = new TextField();
 		textLine = new TextField();
 		
-		labelX = new Label("X Pixels");
-		labelY = new Label("Y Pixels");
+		labelX = new Label("Scene X");
+		
+		labelY = new Label("Scene Y");
+		
 		labelCircle = new Label("Circle 1 Color");
 		labelCircle2 = new Label("Circel 2 Color");
 		labelLine = new Label("Line Color");
@@ -110,7 +114,7 @@ public class gridAction extends Application
 				//c1Color = (textCircle.getText());
 				c2Color = (textCircle2.getText());
 				lnColor = (textLine.getText());
-				System.out.println("color 2 is " + c2Color);
+				//System.out.println("color 2 is " + c2Color);
 				
 				Random rand = new Random();
 				// Range accoutn for scene and circel diameter =((max - min) + 1) + min;
@@ -129,24 +133,22 @@ public class gridAction extends Application
 				Circle circle1 = new Circle();
 				circle1.setCenterX(x);
 				circle1.setCenterY(y);
-				//circle1.centerXProperty().bind(pane.widthProperty().divide(2));
-				//circle1.centerYProperty().bind(pane.heightProperty().divide(2));
+			
 				circle1.setRadius(15);
 				circle1.setFill(Color.BLACK);
-				pane.getChildren().add(circle1);
+				//pane.getChildren().add(circle1);
 
 				//craete circle 2
 				Circle circle2 = new Circle();
 				circle2.setCenterX(x2);
 				circle2.setCenterY(y2);
-				//circle2.centerXProperty().bind(pane.widthProperty().divide(4));
-				//circle2.centerYProperty().bind(pane.heightProperty().divide(4));
+		
 				circle2.setRadius(15);
 				circle2.setFill(Color.BLACK);
-				pane.getChildren().add(circle2);
+				//pane.getChildren().add(circle2);
 				
 				//line.......
-				//xstart = xend/2  yaraty+yend/2
+			
 				Text text = new Text((((x+x2)/2)+10), (((y+y2)/2)+10),Double.toString(length));
 				//Label label1 = new Label(Double.toString(length));
 				Line line = new Line(); 
@@ -158,7 +160,7 @@ public class gridAction extends Application
 				line.setStrokeWidth(2);
 				line.setStroke(Color.BLACK);
 				//Bind line end points to circle 
-				pane.getChildren().addAll(line, text);
+				pane.getChildren().addAll(line, circle1, circle2, text);
 				
 				//create scene and place in into the stage
 				Scene scene = new Scene(pane, xhorz,  yvert);
