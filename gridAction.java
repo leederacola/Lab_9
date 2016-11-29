@@ -26,12 +26,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
  
-public class gridAction extends Application 
+public class xtraLab9 extends Application 
 {
 	String c1Color = "";
 	String c2Color = "";
 	String lnColor = "";
 	int xhorz, yvert;
+	int colorCode;
+	
+	//String[] color = new 
 	
 	//String[] color = new 
 	
@@ -44,17 +47,29 @@ public class gridAction extends Application
 	{
 		//make controls
 		textX = new TextField();
+		textX.setPromptText("X Axis for New Window.");
 		textY = new TextField();
+		textY.setPromptText("Y Axis for new Window.");
 		textCircle = new TextField();
+		textCircle.setPromptText("red=1, green=2, blue=3");
 		textCircle2 = new TextField();
+		textCircle2.setPromptText("red=1, green=2, blue=3");
 		textLine = new TextField();
+		textLine.setPromptText("red=1, green=2, blue=3");
 		
 		labelX = new Label("Scene X");
 		
 		labelY = new Label("Scene Y");
 		
+<<<<<<< HEAD
+=======
+		labelX = new Label("Scene X");
+		
+		labelY = new Label("Scene Y");
+		
+>>>>>>> 2a4c04596366f480dae2f8dcaa29f6d90814daef
 		labelCircle = new Label("Circle 1 Color");
-		labelCircle2 = new Label("Circel 2 Color");
+		labelCircle2 = new Label("Circle 2 Color");
 		labelLine = new Label("Line Color");
 		
 		launch = new Button("Launch");
@@ -99,6 +114,7 @@ public class gridAction extends Application
 				textCircle.clear();
 				textCircle2.clear();
 				textLine.clear();
+				System.out.println(e.getSource());
 				
 			}
 		});
@@ -136,6 +152,10 @@ public class gridAction extends Application
 			
 				circle1.setRadius(15);
 				circle1.setFill(Color.BLACK);
+<<<<<<< HEAD
+				circle1.setFill(getColor(Integer.parseInt(textCircle.getText())));
+=======
+>>>>>>> 2a4c04596366f480dae2f8dcaa29f6d90814daef
 				//pane.getChildren().add(circle1);
 
 				//craete circle 2
@@ -144,7 +164,11 @@ public class gridAction extends Application
 				circle2.setCenterY(y2);
 		
 				circle2.setRadius(15);
+<<<<<<< HEAD
+				circle2.setFill(getColor(Integer.parseInt(textCircle2.getText())));
+=======
 				circle2.setFill(Color.BLACK);
+>>>>>>> 2a4c04596366f480dae2f8dcaa29f6d90814daef
 				//pane.getChildren().add(circle2);
 				
 				//line.......
@@ -158,7 +182,7 @@ public class gridAction extends Application
 				line.setEndY(y2);
 				//line.endProperty().bind(circle2.centerXProperty());
 				line.setStrokeWidth(2);
-				line.setStroke(Color.BLACK);
+				line.setStroke(getColor(Integer.parseInt(textLine.getText())));
 				//Bind line end points to circle 
 				pane.getChildren().addAll(line, circle1, circle2, text);
 				
@@ -171,7 +195,21 @@ public class gridAction extends Application
 				});
 	
 	}
-	
+
+ public Color getColor(int inputColor )
+ {
+	switch(inputColor)
+	{
+		case 1: return Color.RED;
+		//break;
+		case 2: return Color.GREEN;
+		//break;
+		case 3: return Color.BLUE;
+		//break;
+		
+	}
+	return Color.BLACK;
+ }
 	
 	
 }
